@@ -16,14 +16,6 @@ CREATE TABLE Visitantes (
     cidade VARCHAR(50)
 );
 
-CREATE TABLE Eventos (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
-    data_evento DATE,
-    trilh_id INT,
-    FOREIGN KEY (trilh_id) REFERENCES Trilhas(id)
-);
-
 CREATE TABLE Guias (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
@@ -38,6 +30,14 @@ CREATE TABLE Trilhas (
     duracao_min INT,
     guia_id INT, -- Nova coluna de conexão
     FOREIGN KEY (guia_id) REFERENCES Guias(id) ON DELETE SET NULL
+);
+
+CREATE TABLE Eventos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    data_evento DATE,
+    trilh_id INT,
+    FOREIGN KEY (trilh_id) REFERENCES Trilhas(id)
 );
 
 CREATE TABLE Avaliacoes (
