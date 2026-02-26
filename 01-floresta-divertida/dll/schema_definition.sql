@@ -1,14 +1,7 @@
 CREATE DATABASE IF NOT EXISTS FlorestaDivertida;
 USE FlorestaDivertida;
 
-CREATE TABLE Animais (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL, 
-    especie VARCHAR(50),
-    idade INT,
-    ativo BOOLEAN DEFAULT TRUE
-);
-
+-- 1. Tabelas Independentes
 CREATE TABLE Visitantes (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
@@ -23,13 +16,25 @@ CREATE TABLE Guias (
     salario DECIMAL(7,2)
 );
 
+-- 2. Tabela de Trilhas (Conecta com Guias)
 CREATE TABLE Trilhas (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     dificuldade VARCHAR(20),
     duracao_min INT,
-    guia_id INT, -- Nova coluna de conexão
+    guia_id INT,
     FOREIGN KEY (guia_id) REFERENCES Guias(id) ON DELETE SET NULL
+);
+
+-- 3. Tabelas Dependentes de Trilhas (Agora incluindo Animais)
+CREATE TABLE Animais (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL, 
+    especie VARCHAR(50),
+    idade INT,
+    ativo BOOLEAN DEFAULT TRUE,
+    trilha_id INT, -- Conexão: onde este animal costuma ser visto
+    FOREIGN KEY (trilha_id) REFERENCES Trilhas(id) ON DELETE SET NULL
 );
 
 CREATE TABLE Eventos (
