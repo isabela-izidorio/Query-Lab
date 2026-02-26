@@ -1,17 +1,21 @@
 USE FlorestaDivertida;
 
-INSERT INTO Trilhas (nome, dificuldade, duracao_min) VALUES 
-('Trilha Encantada', 'Média', 45),
-('Caminho do Sol', 'Fácil', 30),
-('Pico do Gavião', 'Difícil', 120),
-('Trilha dos Esquilos', 'Fácil', 20);
-
 INSERT INTO Visitantes (nome, idade, cidade) VALUES 
 ('Ana Souza', 25, 'Verdejante'),      
 ('Carlos Lima', 19, 'Verdejante'),   
 ('Beatriz Silva', 17, 'Verdejante'), 
 ('Lucas Rocha', 30, 'Bragança'),     
 ('Mariana Costa', 22, 'Verdejante'); 
+
+INSERT INTO Guias (nome, especialidade, salario) VALUES 
+('Mestre Mateus', 'Botânica', 3500.00),
+('Ana Exploradora', 'Sobrevivência', 3800.00),
+('Guia Gabriel', 'Ornitologia', 3200.00);
+
+INSERT INTO Trilhas (nome, dificuldade, duracao_min, guia_id) VALUES 
+('Trilha Encantada', 'Média', 45, 1),
+('Caminho do Sol', 'Fácil', 30, 2),
+('Pico do Gavião', 'Difícil', 120, 1);
 
 INSERT INTO Animais (nome, especie, idade, ativo) VALUES 
 ('Bento', 'Capivara', 3, TRUE),
