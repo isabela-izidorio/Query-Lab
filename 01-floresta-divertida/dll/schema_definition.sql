@@ -9,13 +9,6 @@ CREATE TABLE Animais (
     ativo BOOLEAN DEFAULT TRUE
 );
 
-CREATE TABLE Trilhas (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
-    dificuldade VARCHAR(20),
-    duracao_min INT
-);
-
 CREATE TABLE Visitantes (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
@@ -36,6 +29,15 @@ CREATE TABLE Guias (
     nome VARCHAR(100) NOT NULL,
     especialidade VARCHAR(50),
     salario DECIMAL(7,2)
+);
+
+CREATE TABLE Trilhas (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    dificuldade VARCHAR(20),
+    duracao_min INT,
+    guia_id INT, -- Nova coluna de conexão
+    FOREIGN KEY (guia_id) REFERENCES Guias(id) ON DELETE SET NULL
 );
 
 CREATE TABLE Avaliacoes (
