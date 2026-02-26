@@ -4,10 +4,12 @@ USE FlorestaDivertida;
 SELECT * FROM Visitantes WHERE idade > 18 AND cidade = 'Verdejante';
 
 -- UPDATE: Atualizar a dificuldade da trilha chamada "Trilha Encantada" para "Difícil".
+SET SQL_SAFE_UPDATES = 0;
 UPDATE Trilhas SET dificuldade = 'Difícil' WHERE nome = 'Trilha Encantada';
 
 -- DELETE: Remover da tabela Animais todos os que tenham ativo = FALSE.
 DELETE FROM Animais WHERE ativo = FALSE;
+SET SQL_SAFE_UPDATES = 1;
 
 -- ALTER TABLE: Adicionar à tabela Eventos a coluna preco_ingresso DECIMAL(6,2).
 alter table Eventos add preco_ingresso DECIMAL(6,2);
