@@ -1,7 +1,6 @@
 CREATE DATABASE IF NOT EXISTS FlorestaDivertida;
 USE FlorestaDivertida;
 
--- 1. Tabelas Independentes
 CREATE TABLE Visitantes (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
