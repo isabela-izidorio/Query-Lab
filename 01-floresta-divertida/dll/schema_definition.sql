@@ -15,7 +15,6 @@ CREATE TABLE Guias (
     salario DECIMAL(7,2)
 );
 
--- 2. Tabela de Trilhas (Conecta com Guias)
 CREATE TABLE Trilhas (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
@@ -25,14 +24,13 @@ CREATE TABLE Trilhas (
     FOREIGN KEY (guia_id) REFERENCES Guias(id) ON DELETE SET NULL
 );
 
--- 3. Tabelas Dependentes de Trilhas (Agora incluindo Animais)
 CREATE TABLE Animais (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL, 
     especie VARCHAR(50),
     idade INT,
     ativo BOOLEAN DEFAULT TRUE,
-    trilha_id INT, -- Conexão: onde este animal costuma ser visto
+    trilha_id INT, 
     FOREIGN KEY (trilha_id) REFERENCES Trilhas(id) ON DELETE SET NULL
 );
 
