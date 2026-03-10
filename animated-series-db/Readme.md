@@ -24,7 +24,7 @@ Gosto muito de animações em formato de série, principalmente as que têm soun
   * **`Series` — `Personagens` (1:N):** Uma série possui muitos personagens, mas cada personagem pertence a apenas uma série.
   * **`Series` — `Episódios` (1:N):** Uma série é composta por vários episódios; cada episódio está vinculado a uma única série mãe.
 
-* **Tabelas de Ligação (1:N)**
+* **Tabelas de Ligação (N:N)**
   * **`Series` — `Criadores` (N:N):** Relacionamento intermediado pela tabela `Serie_Criadores`.
     * **`Series` — `Serie_Criadores` (1:N):** Uma série pode aparecer várias vezes nesta tabela de junção para ser conectada a diferentes autores.
     * **`Criadores` — `erie_Criadores` (1:N):** Um criador pode aparecer várias vezes nesta tabela para representar sua participação em diferentes projetos.
